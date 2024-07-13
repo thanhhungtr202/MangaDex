@@ -5,3 +5,50 @@
 .static-color{
     background-color: #212529;
 }
+
+.info-container{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    gap: 5px;
+}
+
+.info-title{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.info-image{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.info-details{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+.info-description{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.info-background{
+    background-color: #2b2a3b;
+}
+
+.info-center{
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.info-list{
+    font-size: 1.3rem;
+}

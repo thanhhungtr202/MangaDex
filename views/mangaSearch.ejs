@@ -1,0 +1,8 @@
+<%- include("partials/header.ejs") %>
+    <div class="container-fluid page-color py-3" style="min-height: 80vh; color: white">
+        <% for(var i = 0; i < data.length; i++){ %>
+            <p><%= data[i]["title"] %></p>
+            <% if(i>10){ break } %>
+        <%} %>
+    </div>
+<%- include("partials/footer.ejs") %>

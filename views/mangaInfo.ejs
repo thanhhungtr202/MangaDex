@@ -1,0 +1,25 @@
+<%- include("partials/header.ejs") %>
+<div class="container-fluid page-color d-flex justify-content-center align-items-center py-3" style="min-height: 80vh;">
+    <div class="container info-container" style="min-height: 65vh;">
+        <div class="info-title info-background info-center"> 
+            <h2><%= data["title"] %></h2>
+        </div>
+        <div class="info-image info-background"> 
+            <img src=<%= data["images"]["jpg"]["image_url"] %> alt="Manga Picture" width="100%" height="300rem">
+        </div>
+        <div class="info-details info-background info-center"> 
+            <ul class="info-list">
+                <li>Type: <%= data["type"] %></li>
+                <li>Rank: <%= data["rank"] %></li>
+                <li>Author: <%= data["authors"][0]["name"] %></li>
+                <li>Chapters: <%= data["chapters"] %></li>
+                <li>Status: <%= data["status"] %></li>
+            </ul>
+        </div>
+        <div class="info-description info-background" style="color: white;">
+            <h4>Description:</h4> 
+            <p><%= data["synopsis"] %></p>
+        </div>
+    </div>
+</div>
+<%- include("partials/footer.ejs") %>
