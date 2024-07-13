@@ -26,14 +26,24 @@ app.get("/randomManga", async (req, res)=>{
 })
 
 app.post("/searchManga", async (req, res)=>{
-    console.log(req.body["mangaTitle"]);
     try {
-        const response = await axios.get("https://api.jikan.moe/v4/manga", {
-            letter: req.body["mangaTitle"]
-        });
+        const response = await axios.get(`https://api.jikan.moe/v4/manga?q=${req.body["mangaTitle"]}`);
         const result = response.data;
         const newResult = result["data"];
         res.render("mangaSearch.ejs", { data: newResult });
+        } catch (error) {
+        console.error("Failed to make request:", error.message);
+        res.render("index.ejs", {
+            error: error.message,
+        });
+    }
+})
+
+app.post("/moreDetails", async (req, res)=>{
+    try {
+        const response = await axios.get(`https://api.jikan.moe/v4/manga/${req.body["mangaID"]}/full`);
+        const result = response.data["data"];
+        res.render("mangaInfo.ejs", { data: result });
         } catch (error) {
         console.error("Failed to make request:", error.message);
         res.render("index.ejs", {

@@ -1,8 +1,28 @@
 <%- include("partials/header.ejs") %>
-    <div class="container-fluid page-color py-3" style="min-height: 80vh; color: white">
-        <% for(var i = 0; i < data.length; i++){ %>
-            <p><%= data[i]["title"] %></p>
-            <% if(i>10){ break } %>
-        <%} %>
+<div class="page-color py-3">
+<div class="container" style="min-height: 80vh">
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+    <% for(var i = 0; i < data.length; i++){ %>
+    <form method="POST" action="moreDetails">
+        <input type="hidden" name="mangaID" value=<%= data[i]["mal_id"] %>>
+        <a href="#" onclick="this.parentNode.submit()" style="text-decoration: none;">
+            <div class="col">
+                <div class="card shadow-sm" style="color:white">
+                <img src=<%= data[i]["images"]["jpg"]["image_url"] %> alt="Manga Picture" width="100%" height="225" class="card-img-top">
+                <div class="card-body info-background">
+                    <h5><%= data[i]["title"] %></h5>
+                </div>
+                </div>
+            </div>
+        </a>
+    </form>
+      <% if(i>10){ break } %>
+    <%} %>
+      
+    
     </div>
+  </div>
+</div>
 <%- include("partials/footer.ejs") %>
+
